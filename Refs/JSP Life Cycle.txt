@@ -1,0 +1,8 @@
+JSP page following life cycle
+
+1. JSP Translator
+2. Compiler
+3. Instantiation
+4. Initialization
+5. Request Processing (JSP service method)
+6. JSP destroy

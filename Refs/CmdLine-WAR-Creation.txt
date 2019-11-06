@@ -1,0 +1,3 @@
+1. Create a folder identical to WebContents and custom name it, put WEB_INF[/src and /classes - if need dynamic servlets] directory [and index.html - optional file] in it.
+2. Put servlet code in src and compile them to classes directory (if any)
+3. Generate war using jar -cvf "<customname>.war" <base WebContents-alike dir>
