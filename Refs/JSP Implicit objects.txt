@@ -1,0 +1,9 @@
+1. application
+2. cookie
+3. exception
+4. out
+5. page
+6. pageContext
+7. request
+8. response
+9. session
