@@ -1,49 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
-	id="WebApp_ID" version="4.0">
-	<display-name>WEB_Hello_World</display-name>
-	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-		<welcome-file>index.htm</welcome-file>
-		<welcome-file>index.jsp</welcome-file>
-	</welcome-file-list>
-	<context-param>
-		<param-name>db.driver</param-name>
-		<param-value>com.mysql.cj.jdbc.Driver</param-value>
-	</context-param>
-	<context-param>
-		<param-name>db.url</param-name>
-		<param-value>jdbc:mysql://localhost:3306/logindb?serverTimezone=UTC</param-value>
-	</context-param>
-	<context-param>
-		<param-name>db.username</param-name>
-		<param-value>root</param-value>
-	</context-param>
-	<context-param>
-		<param-name>db.password</param-name>
-		<param-value></param-value>
-	</context-param>
-
-	<security-constraint>
-		<web-resource-collection>
-			<web-resource-name>BasicAuthTest is protected resource</web-resource-name>
-			<url-pattern>/BasicAuthTest</url-pattern>
-			<http-method>GET</http-method>
-			<http-method>POST</http-method>
-		</web-resource-collection>
-		<auth-constraint>
-			<role-name>basic-auth-test</role-name>
-		</auth-constraint>
-
-		<user-data-constraint>
-			<!-- transport-guarantee can be CONFIDENTIAL, INTEGRAL, or NONE -->
-			<transport-guarantee>NONE</transport-guarantee>
-		</user-data-constraint>
-	</security-constraint>
-
-	<login-config>
-		<auth-method>BASIC</auth-method>
-	</login-config>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>WEB_Hello_World</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <context-param>
+    <param-name>db.driver</param-name>
+    <param-value>com.mysql.cj.jdbc.Driver</param-value>
+  </context-param>
+  <context-param>
+    <param-name>db.url</param-name>
+    <param-value>jdbc:mysql://localhost:3306/logindb?serverTimezone=UTC</param-value>
+  </context-param>
+  <context-param>
+    <param-name>db.username</param-name>
+    <param-value>root</param-value>
+  </context-param>
+  <context-param>
+    <param-name>db.password</param-name>
+    <param-value></param-value>
+  </context-param>
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>BasicAuthTest is protected resource</web-resource-name>
+      <url-pattern>/BasicAuthTest</url-pattern>
+      <http-method>GET</http-method>
+      <http-method>POST</http-method>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>basic-auth-test</role-name>
+    </auth-constraint>
+    <user-data-constraint>
+      <transport-guarantee>NONE</transport-guarantee>
+    </user-data-constraint>
+  </security-constraint>
+  <login-config>
+    <auth-method>BASIC</auth-method>
+  </login-config>
 </web-app>

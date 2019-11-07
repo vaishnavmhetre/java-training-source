@@ -1,0 +1,49 @@
+Logger refers to logging the activity.
+
+The Logging is broken into 3 parts - 
+
+1. Logger
+2. Formatter
+3. Handler
+
+### Logger
+
+Logger is responsible for capturing the messages to be logged together with some metatdata and pasing it to Logging Framework.
+After receiving the message, it is handed over to the Formatter.
+
+### Formatter
+
+The Formatter is responsible for formatting it to be sent to the output stream. This output is known as Appender(Handler) which can be Console, Disk (File), Database, Email, etc.
+
+### Appender (Handler)
+
+The Appender passes the message(s) to the output stream as of intended by Logger and formatted by Formatter
+
+#### Choosing an Appender
+
+Appender hits the performance due to extra overhead of write operatrions, if not sure about the performance, check the becnhmark comparison of *Log4j* , *SJLF*.
+
+### Layouts
+
+Layout is the way to complete representation of the log message in the output. In framrworks like Log4j, PatternLayout is used.
+
+eg.:
+
+<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+
+   * %d - date+time 
+   * %t - thread
+   * %level - severity of log
+   * %logger - name of logger
+   * %m - Message of log
+   * %n - Adds new line character
+
+### Log4j
+
+Log4j is a logger framework in Java for Logging
+
+#### For setting up Log4j,
+
+1. Add Log4j jar to project
+2. Create resources dir in project
+3. Put `log4j.properties` to the created resources directory (the configuration file for log4j)

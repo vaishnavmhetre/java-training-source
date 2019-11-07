@@ -1,0 +1,20 @@
+
+[Pojo/DAO - Model]
+[Servlet - Controller]
+[JSP/HTML - View]
+
+
+Considering a Client "User":
+
+1. "User" uses the Controller to access the features of the system
+2. The Controller manipulates the model
+3. The View displays/represents the model/data
+
+Considering a normal project of Login(Form Authentication):
+
+1. Login.jsp contains the form for filling username and password
+2. This form shall then be sent to servlet (eg - LoginServlet) through specific URL linking to the Servlet (eg - /loginprocess)
+3. The Servlet shall then process the request as of expected
+4. The Servlet shall then return a response
+	- If successfully authenticated, goto /home
+	- If failed to authenticate, goto /login again with failed message

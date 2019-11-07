@@ -23,15 +23,14 @@ public class ContextInitParametersToPropertiesLoaderServlet extends HttpServlet 
 	 */
 	public ContextInitParametersToPropertiesLoaderServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
 
-		Enumeration<String> contextInitParameterNames = getServletContext().getInitParameterNames();
 		ContextProperties properties = ContextPropertiesSingletonFactory.getInstance();
+		Enumeration<String> contextInitParameterNames = getServletContext().getInitParameterNames();
 
 		while (contextInitParameterNames.hasMoreElements()) {
 			String parameterName = contextInitParameterNames.nextElement();

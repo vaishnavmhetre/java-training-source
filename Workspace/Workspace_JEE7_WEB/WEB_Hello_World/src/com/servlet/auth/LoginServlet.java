@@ -1,7 +1,6 @@
 package com.servlet.auth;
 
 import java.io.IOException;
-import java.util.Properties;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.servlet.auth.support.auth.AuthenticationManager;
-import com.servlet.auth.support.auth.contract.AuthenticationManagerContract;
 
 /**
  * Servlet implementation class LoginServlet
@@ -48,7 +46,6 @@ public class LoginServlet extends HttpServlet {
 				return;
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			response.setStatus(500);
 			response.getWriter().print("Something happened on our side.");

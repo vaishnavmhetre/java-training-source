@@ -24,7 +24,6 @@ public class BasicAuthTest extends HttpServlet {
      */
     public BasicAuthTest() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**

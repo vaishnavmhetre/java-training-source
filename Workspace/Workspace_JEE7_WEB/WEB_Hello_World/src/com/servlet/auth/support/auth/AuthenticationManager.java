@@ -4,7 +4,6 @@
 package com.servlet.auth.support.auth;
 
 import java.sql.ResultSet;
-import java.util.Properties;
 
 import com.servlet.auth.support.auth.contract.AuthenticationManagerContract;
 import com.servlet.auth.support.dao.LoginDao;
