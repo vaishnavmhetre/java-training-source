@@ -192,6 +192,23 @@ public class SqlQueryBuilder {
 	public String select(List<String> columns) {
 		return select(columns, null);
 	}
+	
+	public String delete(List<SqlQueryCondition> conditions) {
+		StringBuilder builder = new StringBuilder("DELETE ");
+		
+		builder.append("FROM " + getBracedName(getTableName()));
+
+		if (conditions != null) {
+			builder.append(" WHERE ");
+			for (SqlQueryCondition condition : conditions)
+				builder.append(" " + condition.getSqlString());
+		}
+		
+
+		builder.append(';');
+
+		return builder.toString();
+	}
 
 	/**
 	 * Returns SQL representable form of data to push in query

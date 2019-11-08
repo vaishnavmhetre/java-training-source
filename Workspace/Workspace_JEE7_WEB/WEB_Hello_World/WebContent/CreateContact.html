@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Create contact</title>
+</head>
+<body>
+	<div style="padding-left: 2em;">
+		<h2>Create new Contact</h2>
+		<hr>
+		<form action="CreateController" method="post">
+			<ul>
+				<li><b>Name: </b> <input type="text" name="name" /></li>
+				<li><b>Number: </b> <input type="number" name="number" /></li>
+				<li><b>Address: </b> <input type="text" name="address" /></li>
+			</ul>
+			<button type="submit">Submit contact details</button>
+		</form>
+	</div>
+	<a href="ListContacts.jsp">&larr; Back to list</a>
+</body>
+</html>
