@@ -2,7 +2,6 @@ package com.support.base.servlet;
 
 import java.util.Enumeration;
 
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,8 +25,8 @@ public class ContextInitParametersToPropertiesLoaderServlet extends HttpServlet 
 	}
 
 	@Override
-	public void init(ServletConfig config) throws ServletException {
-		super.init(config);
+	public void init() throws ServletException {
+		super.init();
 
 		ContextProperties properties = ContextPropertiesSingletonFactory.getInstance();
 		Enumeration<String> contextInitParameterNames = getServletContext().getInitParameterNames();
