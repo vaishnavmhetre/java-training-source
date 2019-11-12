@@ -50,28 +50,28 @@ public class MetaMessengerServiceProxy implements com.services.MetaMessengerServ
     return metaMessengerService.register(name, username, password);
   }
   
-  public com.data.model.Message[] getAllMessages(java.lang.String token) throws java.rmi.RemoteException, com.support.database.querybuilder.exceptions.InvalidQueryBuilderParameter{
-    if (metaMessengerService == null)
-      _initMetaMessengerServiceProxy();
-    return metaMessengerService.getAllMessages(token);
-  }
-  
   public java.lang.String login(java.lang.String username, java.lang.String password) throws java.rmi.RemoteException, com.support.database.querybuilder.exceptions.InvalidQueryBuilderParameter{
     if (metaMessengerService == null)
       _initMetaMessengerServiceProxy();
     return metaMessengerService.login(username, password);
   }
   
+  public java.lang.String[] getUnreadMessages(java.lang.String token) throws java.rmi.RemoteException, com.support.database.querybuilder.exceptions.InvalidQueryBuilderParameter{
+    if (metaMessengerService == null)
+      _initMetaMessengerServiceProxy();
+    return metaMessengerService.getUnreadMessages(token);
+  }
+  
+  public java.lang.String[] getAllMessages(java.lang.String token) throws java.rmi.RemoteException, com.support.database.querybuilder.exceptions.InvalidQueryBuilderParameter{
+    if (metaMessengerService == null)
+      _initMetaMessengerServiceProxy();
+    return metaMessengerService.getAllMessages(token);
+  }
+  
   public java.lang.String getRandomUser() throws java.rmi.RemoteException{
     if (metaMessengerService == null)
       _initMetaMessengerServiceProxy();
     return metaMessengerService.getRandomUser();
-  }
-  
-  public com.data.model.Message[] getUnreadMessages(java.lang.String token) throws java.rmi.RemoteException, com.support.database.querybuilder.exceptions.InvalidQueryBuilderParameter{
-    if (metaMessengerService == null)
-      _initMetaMessengerServiceProxy();
-    return metaMessengerService.getUnreadMessages(token);
   }
   
   public boolean sendMessage(java.lang.String token, int userId, java.lang.String content) throws java.rmi.RemoteException, com.support.database.querybuilder.exceptions.InvalidQueryBuilderParameter{

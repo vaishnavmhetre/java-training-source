@@ -90,8 +90,14 @@ valid = false;
 <INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
 <TABLE>
 <TR>
-<TD COLSPAN="1" ALIGN="LEFT">token:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="token27" SIZE=20></TD>
+<TD COLSPAN="1" ALIGN="LEFT">username:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="username27" SIZE=20></TD>
+</TR>
+</TABLE>
+<TABLE>
+<TR>
+<TD COLSPAN="1" ALIGN="LEFT">password:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="password29" SIZE=20></TD>
 </TR>
 </TABLE>
 <BR>
@@ -100,21 +106,15 @@ valid = false;
 </FORM>
 <%
 break;
-case 29:
+case 31:
 valid = false;
 %>
 <FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
 <INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
 <TABLE>
 <TR>
-<TD COLSPAN="1" ALIGN="LEFT">username:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="username32" SIZE=20></TD>
-</TR>
-</TABLE>
-<TABLE>
-<TR>
-<TD COLSPAN="1" ALIGN="LEFT">password:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="password34" SIZE=20></TD>
+<TD COLSPAN="1" ALIGN="LEFT">token:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="token34" SIZE=20></TD>
 </TR>
 </TABLE>
 <BR>
@@ -128,23 +128,23 @@ valid = false;
 %>
 <FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
 <INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
+<TABLE>
+<TR>
+<TD COLSPAN="1" ALIGN="LEFT">token:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="token39" SIZE=20></TD>
+</TR>
+</TABLE>
 <BR>
 <INPUT TYPE="SUBMIT" VALUE="Invoke">
 <INPUT TYPE="RESET" VALUE="Clear">
 </FORM>
 <%
 break;
-case 39:
+case 41:
 valid = false;
 %>
 <FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
 <INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
-<TABLE>
-<TR>
-<TD COLSPAN="1" ALIGN="LEFT">token:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="token42" SIZE=20></TD>
-</TR>
-</TABLE>
 <BR>
 <INPUT TYPE="SUBMIT" VALUE="Invoke">
 <INPUT TYPE="RESET" VALUE="Clear">

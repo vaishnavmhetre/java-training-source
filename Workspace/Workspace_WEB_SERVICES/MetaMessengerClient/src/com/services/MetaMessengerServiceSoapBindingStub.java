@@ -45,23 +45,6 @@ public class MetaMessengerServiceSoapBindingStub extends org.apache.axis.client.
         _operations[0] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getAllMessages");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://services.com", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://model.data.com", "Message"));
-        oper.setReturnClass(com.data.model.Message[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("http://services.com", "getAllMessagesReturn"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://services.com", "fault"),
-                      "com.support.database.querybuilder.exceptions.InvalidQueryBuilderParameter",
-                      new javax.xml.namespace.QName("http://exceptions.querybuilder.database.support.com", "InvalidQueryBuilderParameter"), 
-                      true
-                     ));
-        _operations[1] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
         oper.setName("login");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://services.com", "username"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         oper.addParameter(param);
@@ -78,23 +61,14 @@ public class MetaMessengerServiceSoapBindingStub extends org.apache.axis.client.
                       new javax.xml.namespace.QName("http://exceptions.querybuilder.database.support.com", "InvalidQueryBuilderParameter"), 
                       true
                      ));
-        _operations[2] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getRandomUser");
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        oper.setReturnClass(java.lang.String.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("http://services.com", "getRandomUserReturn"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[3] = oper;
+        _operations[1] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("getUnreadMessages");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://services.com", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://model.data.com", "Message"));
-        oper.setReturnClass(com.data.model.Message[].class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        oper.setReturnClass(java.lang.String[].class);
         oper.setReturnQName(new javax.xml.namespace.QName("http://services.com", "getUnreadMessagesReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -104,6 +78,32 @@ public class MetaMessengerServiceSoapBindingStub extends org.apache.axis.client.
                       new javax.xml.namespace.QName("http://exceptions.querybuilder.database.support.com", "InvalidQueryBuilderParameter"), 
                       true
                      ));
+        _operations[2] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getAllMessages");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://services.com", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        oper.setReturnClass(java.lang.String[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("http://services.com", "getAllMessagesReturn"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://services.com", "fault"),
+                      "com.support.database.querybuilder.exceptions.InvalidQueryBuilderParameter",
+                      new javax.xml.namespace.QName("http://exceptions.querybuilder.database.support.com", "InvalidQueryBuilderParameter"), 
+                      true
+                     ));
+        _operations[3] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getRandomUser");
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        oper.setReturnClass(java.lang.String.class);
+        oper.setReturnQName(new javax.xml.namespace.QName("http://services.com", "getRandomUserReturn"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
         _operations[4] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
@@ -161,13 +161,6 @@ public class MetaMessengerServiceSoapBindingStub extends org.apache.axis.client.
             qName = new javax.xml.namespace.QName("http://exceptions.querybuilder.database.support.com", "InvalidQueryBuilderParameter");
             cachedSerQNames.add(qName);
             cls = com.support.database.querybuilder.exceptions.InvalidQueryBuilderParameter.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://model.data.com", "Message");
-            cachedSerQNames.add(qName);
-            cls = com.data.model.Message.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
@@ -280,54 +273,12 @@ public class MetaMessengerServiceSoapBindingStub extends org.apache.axis.client.
 }
     }
 
-    public com.data.model.Message[] getAllMessages(java.lang.String token) throws java.rmi.RemoteException, com.support.database.querybuilder.exceptions.InvalidQueryBuilderParameter {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[1]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://services.com", "getAllMessages"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (com.data.model.Message[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (com.data.model.Message[]) org.apache.axis.utils.JavaUtils.convert(_resp, com.data.model.Message[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof com.support.database.querybuilder.exceptions.InvalidQueryBuilderParameter) {
-              throw (com.support.database.querybuilder.exceptions.InvalidQueryBuilderParameter) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
     public java.lang.String login(java.lang.String username, java.lang.String password) throws java.rmi.RemoteException, com.support.database.querybuilder.exceptions.InvalidQueryBuilderParameter {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[2]);
+        _call.setOperation(_operations[1]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -364,12 +315,96 @@ public class MetaMessengerServiceSoapBindingStub extends org.apache.axis.client.
 }
     }
 
-    public java.lang.String getRandomUser() throws java.rmi.RemoteException {
+    public java.lang.String[] getUnreadMessages(java.lang.String token) throws java.rmi.RemoteException, com.support.database.querybuilder.exceptions.InvalidQueryBuilderParameter {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[2]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://services.com", "getUnreadMessages"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (java.lang.String[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (java.lang.String[]) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof com.support.database.querybuilder.exceptions.InvalidQueryBuilderParameter) {
+              throw (com.support.database.querybuilder.exceptions.InvalidQueryBuilderParameter) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public java.lang.String[] getAllMessages(java.lang.String token) throws java.rmi.RemoteException, com.support.database.querybuilder.exceptions.InvalidQueryBuilderParameter {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
         _call.setOperation(_operations[3]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://services.com", "getAllMessages"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (java.lang.String[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (java.lang.String[]) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof com.support.database.querybuilder.exceptions.InvalidQueryBuilderParameter) {
+              throw (com.support.database.querybuilder.exceptions.InvalidQueryBuilderParameter) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public java.lang.String getRandomUser() throws java.rmi.RemoteException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[4]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -394,48 +429,6 @@ public class MetaMessengerServiceSoapBindingStub extends org.apache.axis.client.
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
-    }
-
-    public com.data.model.Message[] getUnreadMessages(java.lang.String token) throws java.rmi.RemoteException, com.support.database.querybuilder.exceptions.InvalidQueryBuilderParameter {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[4]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://services.com", "getUnreadMessages"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (com.data.model.Message[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (com.data.model.Message[]) org.apache.axis.utils.JavaUtils.convert(_resp, com.data.model.Message[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof com.support.database.querybuilder.exceptions.InvalidQueryBuilderParameter) {
-              throw (com.support.database.querybuilder.exceptions.InvalidQueryBuilderParameter) axisFaultException.detail;
-         }
-   }
   throw axisFaultException;
 }
     }

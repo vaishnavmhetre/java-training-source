@@ -87,85 +87,85 @@ case 15:
 break;
 case 24:
         gotMethod = true;
-        String token_4id=  request.getParameter("token27");
-            java.lang.String token_4idTemp = null;
-        if(!token_4id.equals("")){
-         token_4idTemp  = token_4id;
+        String username_4id=  request.getParameter("username27");
+            java.lang.String username_4idTemp = null;
+        if(!username_4id.equals("")){
+         username_4idTemp  = username_4id;
         }
-        com.data.model.Message[] getAllMessages24mtemp = sampleMetaMessengerServiceProxyid.getAllMessages(token_4idTemp);
-if(getAllMessages24mtemp == null){
+        String password_5id=  request.getParameter("password29");
+            java.lang.String password_5idTemp = null;
+        if(!password_5id.equals("")){
+         password_5idTemp  = password_5id;
+        }
+        java.lang.String login24mtemp = sampleMetaMessengerServiceProxyid.login(username_4idTemp,password_5idTemp);
+if(login24mtemp == null){
 %>
-<%=getAllMessages24mtemp %>
+<%=login24mtemp %>
 <%
 }else{
-        String tempreturnp25 = null;
-        if(getAllMessages24mtemp != null){
-        java.util.List listreturnp25= java.util.Arrays.asList(getAllMessages24mtemp);
-        tempreturnp25 = listreturnp25.toString();
-        }
+        String tempResultreturnp25 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(login24mtemp));
         %>
-        <%=tempreturnp25%>
+        <%= tempResultreturnp25 %>
         <%
 }
 break;
-case 29:
+case 31:
         gotMethod = true;
-        String username_5id=  request.getParameter("username32");
-            java.lang.String username_5idTemp = null;
-        if(!username_5id.equals("")){
-         username_5idTemp  = username_5id;
+        String token_6id=  request.getParameter("token34");
+            java.lang.String token_6idTemp = null;
+        if(!token_6id.equals("")){
+         token_6idTemp  = token_6id;
         }
-        String password_6id=  request.getParameter("password34");
-            java.lang.String password_6idTemp = null;
-        if(!password_6id.equals("")){
-         password_6idTemp  = password_6id;
-        }
-        java.lang.String login29mtemp = sampleMetaMessengerServiceProxyid.login(username_5idTemp,password_6idTemp);
-if(login29mtemp == null){
+        java.lang.String[] getUnreadMessages31mtemp = sampleMetaMessengerServiceProxyid.getUnreadMessages(token_6idTemp);
+if(getUnreadMessages31mtemp == null){
 %>
-<%=login29mtemp %>
+<%=getUnreadMessages31mtemp %>
 <%
 }else{
-        String tempResultreturnp30 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(login29mtemp));
+        String tempreturnp32 = null;
+        if(getUnreadMessages31mtemp != null){
+        java.util.List listreturnp32= java.util.Arrays.asList(getUnreadMessages31mtemp);
+        tempreturnp32 = listreturnp32.toString();
+        }
         %>
-        <%= tempResultreturnp30 %>
+        <%=tempreturnp32%>
         <%
 }
 break;
 case 36:
         gotMethod = true;
-        java.lang.String getRandomUser36mtemp = sampleMetaMessengerServiceProxyid.getRandomUser();
-if(getRandomUser36mtemp == null){
-%>
-<%=getRandomUser36mtemp %>
-<%
-}else{
-        String tempResultreturnp37 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(getRandomUser36mtemp));
-        %>
-        <%= tempResultreturnp37 %>
-        <%
-}
-break;
-case 39:
-        gotMethod = true;
-        String token_7id=  request.getParameter("token42");
+        String token_7id=  request.getParameter("token39");
             java.lang.String token_7idTemp = null;
         if(!token_7id.equals("")){
          token_7idTemp  = token_7id;
         }
-        com.data.model.Message[] getUnreadMessages39mtemp = sampleMetaMessengerServiceProxyid.getUnreadMessages(token_7idTemp);
-if(getUnreadMessages39mtemp == null){
+        java.lang.String[] getAllMessages36mtemp = sampleMetaMessengerServiceProxyid.getAllMessages(token_7idTemp);
+if(getAllMessages36mtemp == null){
 %>
-<%=getUnreadMessages39mtemp %>
+<%=getAllMessages36mtemp %>
 <%
 }else{
-        String tempreturnp40 = null;
-        if(getUnreadMessages39mtemp != null){
-        java.util.List listreturnp40= java.util.Arrays.asList(getUnreadMessages39mtemp);
-        tempreturnp40 = listreturnp40.toString();
+        String tempreturnp37 = null;
+        if(getAllMessages36mtemp != null){
+        java.util.List listreturnp37= java.util.Arrays.asList(getAllMessages36mtemp);
+        tempreturnp37 = listreturnp37.toString();
         }
         %>
-        <%=tempreturnp40%>
+        <%=tempreturnp37%>
+        <%
+}
+break;
+case 41:
+        gotMethod = true;
+        java.lang.String getRandomUser41mtemp = sampleMetaMessengerServiceProxyid.getRandomUser();
+if(getRandomUser41mtemp == null){
+%>
+<%=getRandomUser41mtemp %>
+<%
+}else{
+        String tempResultreturnp42 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(getRandomUser41mtemp));
+        %>
+        <%= tempResultreturnp42 %>
         <%
 }
 break;

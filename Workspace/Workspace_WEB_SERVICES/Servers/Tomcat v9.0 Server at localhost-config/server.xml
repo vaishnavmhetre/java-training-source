@@ -149,7 +149,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="FindCategory" path="/FindCategory" reloadable="true" source="org.eclipse.jst.jee.server:FindCategory"/><Context docBase="FindCategoryClient" path="/FindCategoryClient" reloadable="true" source="org.eclipse.jst.jee.server:FindCategoryClient"/><Context docBase="MetaMessenger" path="/MetaMessenger" reloadable="true" source="org.eclipse.jst.jee.server:MetaMessenger"/><Context docBase="MetaMessengerClient" path="/MetaMessengerClient" reloadable="true" source="org.eclipse.jst.jee.server:MetaMessengerClient"/></Host>
+      <Context docBase="FindCategory" path="/FindCategory" reloadable="true" source="org.eclipse.jst.jee.server:FindCategory"/><Context docBase="FindCategoryClient" path="/FindCategoryClient" reloadable="true" source="org.eclipse.jst.jee.server:FindCategoryClient"/><Context docBase="MetaMessenger_OLD" path="/MetaMessenger_OLD" reloadable="true" source="org.eclipse.jst.jee.server:MetaMessenger_OLD"/><Context docBase="MetaMessenger" path="/MetaMessenger" reloadable="true" source="org.eclipse.jst.jee.server:MetaMessenger"/><Context docBase="MetaMessengerClient" path="/MetaMessengerClient" reloadable="true" source="org.eclipse.jst.jee.server:MetaMessengerClient"/></Host>
     </Engine>
   </Service>
 </Server>
