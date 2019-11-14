@@ -29,8 +29,7 @@ public class TestFile {
 
 		File file = new File("ipFile.dat");
 
-		try {
-			FileInputStream fStream = new FileInputStream(file);
+		try (FileInputStream fStream = new FileInputStream(file)) {
 
 			int value = 0;
 			while ((value = fStream.read()) != -1)
@@ -42,14 +41,14 @@ public class TestFile {
 			System.err.println("ERR: IO Error [" + e.getMessage() + "]");
 		}
 	}
-	
-	public static  void fileOutputStream() {
+
+	public static void fileOutputStream() {
 		File file = new File("opfile.dat");
 		String message = "This is my lovely output file";
-		
-		try{
-			FileOutputStream fStream = new FileOutputStream(file);
-			byte[] bytes = message.getBytes();			
+
+		try (FileOutputStream fStream = new FileOutputStream(file)) {
+			byte[] bytes = message.getBytes();
+			fStream.write(bytes);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

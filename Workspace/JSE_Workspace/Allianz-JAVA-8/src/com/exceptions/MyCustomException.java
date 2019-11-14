@@ -7,7 +7,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -18,7 +17,7 @@ public class MyCustomException {
 
 	public static void main(String[] args) {
 		int no1, no2, result;
-		
+
 		try {
 			System.setIn(new FileInputStream(new File("infile.dat")));
 		} catch (FileNotFoundException e2) {
@@ -26,7 +25,7 @@ public class MyCustomException {
 			e2.printStackTrace();
 			return;
 		}
-		
+
 		Scanner scanner = new Scanner(System.in);
 
 		System.out.println("Starting...");
@@ -57,7 +56,7 @@ public class MyCustomException {
 			System.err.println("ERR: " + e.getLocalizedMessage());
 		}
 		System.out.println("Ending...");
-		
+
 		scanner.close();
 	}
 
