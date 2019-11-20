@@ -21,7 +21,7 @@
 		<input type="hidden" id="action" name="action" value="update" /> 
 		
 		<label for="newId">ID: </label> 
-		<input type="number" id="newId" name="newId" value="${product.id}" required /> 
+		<input type="number" disabled="disabled" value="${product.id}" required /> 
 		
 		<br />
 		

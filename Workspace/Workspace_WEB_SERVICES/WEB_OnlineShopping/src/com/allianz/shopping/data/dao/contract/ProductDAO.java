@@ -2,6 +2,7 @@ package com.allianz.shopping.data.dao.contract;
 
 import java.util.List;
 
+import com.allianz.shopping.data.model.Category;
 import com.allianz.shopping.data.model.Product;
 
 public interface ProductDAO {
@@ -18,4 +19,6 @@ public interface ProductDAO {
 	public List<Product> getAllByPrice(float min, float max);
 
 	public Product find(int id);
+	
+	public List<Category> getCategoriesOfProduct(Product product);
 }

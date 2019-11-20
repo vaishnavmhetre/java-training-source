@@ -3,7 +3,9 @@
  */
 package com.allianz.shopping.data.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author Allianz3076
@@ -17,6 +19,8 @@ public class Product {
 	private float price;
 	private Date manufactureDate;
 
+	private List<Category> categories = new ArrayList<Category>();
+
 	public Product() {
 		super();
 	}
@@ -24,6 +28,14 @@ public class Product {
 	public Product(int id, String name, String description, float price, Date manufactureDate) {
 		super();
 		setId(id);
+		setName(name);
+		setDescription(description);
+		setPrice(price);
+		setManufactureDate(manufactureDate);
+	}
+
+	public Product(String name, String description, float price, Date manufactureDate) {
+		super();
 		setName(name);
 		setDescription(description);
 		setPrice(price);
@@ -98,6 +110,32 @@ public class Product {
 	 */
 	public void setManufactureDate(Date manufactureDate) {
 		this.manufactureDate = manufactureDate;
+	}
+
+	/**
+	 * @return the categories
+	 */
+	public List<Category> getCategories() {
+		return categories;
+	}
+
+	/**
+	 * @param categories the categories to set
+	 */
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
+	}
+	
+	public void addCategory(Category category) {
+		this.categories.add(category);
+	}
+	
+	public void removeCategory(Category category) {
+		for (Category listCategory : categories) {
+			if (category.getId() == listCategory.getId()) {
+				this.categories.remove(listCategory);
+			}
+		}
 	}
 
 }

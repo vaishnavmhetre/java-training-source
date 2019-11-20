@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.allianz.shopping.data.dao.contract.ProductDAO;
+import com.allianz.shopping.data.model.Category;
 import com.allianz.shopping.data.model.Product;
 
 /**
@@ -156,6 +157,12 @@ public class ProductDAOImpl implements ProductDAO {
 				if (product.getId() == id)
 					return product;
 
+		return null;
+	}
+
+	@Override
+	public List<Category> getCategoriesOfProduct(Product product) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib uri="customdateformatter" prefix="cdf" %>  
+<%@ taglib uri="customdateformatter" prefix="cdf"%>
 
 <!DOCTYPE html>
 <html>
@@ -32,11 +32,11 @@ tr.header-row>th {
 	border-right: 1px solid #fff;
 }
 
-tr.header-row > th:first-child{
+tr.header-row>th:first-child {
 	border-left: 1px solid #000 !important;
 }
 
-th.header-row > th:last-child{
+th.header-row>th:last-child {
 	border-right: 1px solid #000 !important;
 }
 </style>
@@ -49,6 +49,7 @@ th.header-row > th:last-child{
 			<th>Description</th>
 			<th>Price</th>
 			<th>Manufacturing Date</th>
+			<th>Categories</th>
 			<th colspan="2">Action</th>
 		</tr>
 		<c:forEach items="${products}" var="product">
@@ -61,8 +62,12 @@ th.header-row > th:last-child{
 						pattern="dd/MM/yyyy" /></td> --%>
 				<td><cdf:format date="${product.manufactureDate}"
 						pattern="dd/MM/yyyy" /></td>
+				<td><c:forEach items="${product.categories}" var="category">
+					<c:out value="${category.code}"></c:out> |
+				</c:forEach></td>
 				<td><a href="ProductController?action=edit&id=${product.id}">Update</a></td>
-				<td><a href="ProductController?action=delete&id=${product.id}" style="color: red;">Delete</a></td>
+				<td><a href="ProductController?action=delete&id=${product.id}"
+					style="color: red;">Delete</a></td>
 			</tr>
 		</c:forEach>
 	</table>

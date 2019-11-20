@@ -14,9 +14,6 @@
 
 		<input type="hidden" id="action" name="action" value="add" /> 
 		
-		<label for="newId">ID: </label> 
-		<input type="number" id="newId" name="newId" required /> 
-		
 		<br />
 		
 		<label for="name">Name: </label> 

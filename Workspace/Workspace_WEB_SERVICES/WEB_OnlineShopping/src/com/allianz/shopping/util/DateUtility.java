@@ -28,4 +28,12 @@ public class DateUtility {
 	public static Date convertStringToDate(String stringDate, String format) throws ParseException {
 		return new SimpleDateFormat(format).parse(stringDate);
 	}
+	
+	public static java.sql.Date convertUtilDateToSqlDate(Date date){
+		return new java.sql.Date(date.getTime());
+	}
+	
+	public static Date convertSqlDateToUtilDate(java.sql.Date date){
+		return new Date(date.getTime());
+	}
 }
