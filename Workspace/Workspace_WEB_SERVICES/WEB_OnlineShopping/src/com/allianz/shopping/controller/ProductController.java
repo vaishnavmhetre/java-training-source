@@ -12,8 +12,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.allianz.shopping.data.dao.contract.CategoryDAO;
 import com.allianz.shopping.data.dao.contract.ProductDAO;
+import com.allianz.shopping.data.dao.db.CategoryDAODbImpl;
 import com.allianz.shopping.data.dao.db.ProductDAODbImpl;
+import com.allianz.shopping.data.model.Category;
 import com.allianz.shopping.data.model.Product;
 import com.allianz.shopping.util.DateUtility;
 
@@ -26,6 +29,7 @@ public class ProductController extends HttpServlet {
 
 //	ProductDAO productDAO = new ProductDAOImpl();
 	ProductDAO productDAO;
+	CategoryDAO categoryDAO;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -43,6 +47,12 @@ public class ProductController extends HttpServlet {
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 			throw new ServletException("Unable to create ProductDao Instance", e);
+		}
+		try {
+			categoryDAO = new CategoryDAODbImpl();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			throw new ServletException("Unable to create CategoryDao Instance", e);
 		}
 	}
 
@@ -83,14 +93,39 @@ public class ProductController extends HttpServlet {
 				response.sendRedirect("ProductController");
 				return;
 			}
+			else if (action.equalsIgnoreCase("getAllProductsOfCategory")) {
+
+				Category category = new Category();
+				category.setId(Integer.parseInt(request.getParameter("category_id")));
+				
+				List<Product> productsOfCategory = categoryDAO.getProductsOfCategory(category);
+				
+				if (productsOfCategory != null) {
+				
+					List<Category> categories = categoryDAO.getAll();
+					request.setAttribute("categories", categories);
+					
+					request.setAttribute("products", productsOfCategory);
+					RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+
+					if (dispatcher != null)
+						dispatcher.forward(request, response);
+
+					return;
+				}
+
+				response.sendRedirect("ProductController");
+				return;
+			}
 
 		}
 		List<Product> products = productDAO.getAll();
-		products.forEach((product) -> {
-			product.setCategories(productDAO.getCategoriesOfProduct(product));
-		});
 		request.setAttribute("products", products);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("productlist.jsp");
+		
+		List<Category> categories = categoryDAO.getAll();
+		request.setAttribute("categories", categories);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 
 		if (dispatcher != null)
 			dispatcher.forward(request, response);

@@ -13,8 +13,8 @@ import com.allianz.shopping.support.base.context.properties.ContextPropertiesSin
 /**
  * Servlet implementation class ContextParametersToPropertiesTranslatorService
  */
-@WebServlet(loadOnStartup = 0, displayName = "Context Init Parameters To Properties Translator Servlet", urlPatterns = {
-		"" })
+@WebServlet(loadOnStartup = 0, displayName = "Context Init Parameters To Properties Translator Servlet", urlPatterns = { "/ContextInitParametersToPropertiesLoaderServlet"
+		 })
 public class ContextInitParametersToPropertiesLoaderServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
