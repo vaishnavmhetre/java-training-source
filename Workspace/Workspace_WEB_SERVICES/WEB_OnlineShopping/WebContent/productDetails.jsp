@@ -6,18 +6,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Book Store Template, Free CSS Template, CSS Website
-	Layout</title>
+<title>Book Store Template, Free CSS Template, TemplateMo.com</title>
 <meta name="keywords"
-	content="Book Store Template, Free CSS Template, CSS Website Layout, CSS, HTML" />
+	content="Book Store Template, Free CSS Template, CSS Website Layout, CSS, HTML, TemplateMo.com" />
 <meta name="description"
-	content="Book Store Template, Free CSS Template, Download CSS Website" />
+	content="Book Store Template, Free CSS Template, Download CSS Website from TemplateMo.com" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-	<c:if test="${products == null}">
-		<c:redirect url="ProductController"></c:redirect>
-	</c:if>
 	<!--  Free CSS Templates from www.templatemo.com -->
 	<div id="templatemo_container">
 		<jsp:include page="menu.jsp" />
@@ -73,37 +69,27 @@
 			<!-- end of content left -->
 
 			<div id="templatemo_content_right">
-				<c:forEach items="${products}" var="product" varStatus="status">
-					<div class="templatemo_product_box">
-						<h1>
-							${product.name} <span>(by Best Author)</span>
-						</h1>
-						<img src="images/templatemo_image_01.jpg" alt="image" />
-						<div class="product_info">
-							<p>${product.description}</p>
-							<h3>$${product.price}</h3>
-							<div class="buy_now_button">
-								<a href="subpage.html">Buy Now</a>
-							</div>
-							<div class="detail_button">
-								<a
-									href="ProductController?action=getProductDetails&product_id=${product.id}">Show
-									details</a>
-							</div>
-						</div>
-						<div class="cleaner">&nbsp;</div>
-					</div>
 
-					<c:if test="${status.index % 2 == 0}">
-						<div class="cleaner_with_width">&nbsp;</div>
-					</c:if>
-					<c:if test="${status.index % 2 != 0}">
-						<div class="cleaner_with_height">&nbsp;</div>
-					</c:if>
-				</c:forEach>
+				<h1>
+					${product.name } <span>(by author name)</span>
+				</h1>
+				<div class="image_panel">
+					<img src="images/templatemo_image_02.jpg" alt="CSS Template"
+						width="100" height="150" />
+				</div>
+				<h2>$${product.price}</h2>
+				<ul>
+					<li>Categories: (<c:forEach items="${product.categories}" var="category" varStatus="loop"><a href="ProductController?action=getAllProductsOfCategory&category_id=${category.id}">${category.code}</a>${!loop.last ? ', ' : ''}</c:forEach>)</li>
+					<li>Manufactured on: <b><fmt:formatDate value="${product.manufactureDate}" pattern="dd MMM yyyy" /></b></li>
+				</ul>
 
-				<a href="subpage.html"><img src="images/templatemo_ads.jpg"
-					alt="ads" /></a>
+				<p>${product.description }</p>
+
+				<div class="cleaner_with_height">&nbsp;</div>
+
+				<a href="index.html"><img src="images/templatemo_ads.jpg"
+					alt="css template ad" /></a>
+
 			</div>
 			<!-- end of content right -->
 
@@ -111,7 +97,15 @@
 		</div>
 		<!-- end of content -->
 
-		<jsp:include page="footer.jsp" />
+		<div id="templatemo_footer">
+			<a href="index.html">Home</a> | <a href="index.html">Search</a> | <a
+				href="index.html">Books</a> | <a href="#">New Releases</a> | <a
+				href="#">FAQs</a> | <a href="#">Contact Us</a><br /> Copyright ©
+			2048 <a href="#"><strong>Your Company Name</strong></a> | <a
+				href="http://www.iwebsitetemplate.com" target="_parent">Website
+				Templates</a> by <a href="http://www.templatemo.com" target="_parent">Free
+				CSS Templates</a>
+		</div>
 		<!-- end of footer -->
 		<!--  Free CSS Template www.templatemo.com -->
 	</div>

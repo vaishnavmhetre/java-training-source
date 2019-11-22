@@ -8,6 +8,7 @@
 </head>
 <body>
 	<form action="AuthController" method="post">
+	<input type="hidden" name="action" value="register"/>
 		Name:<input type="text" name="name"><br> Username:<input
 			type="text" name="username"><br> Password:<input
 			type="password" name="password"><br>

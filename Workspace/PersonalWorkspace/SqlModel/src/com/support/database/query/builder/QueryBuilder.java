@@ -76,14 +76,22 @@ public class QueryBuilder {
 	}
 
 	public QueryBuilder select(List<String> columns) {
+		queryBuilder.append("SELECT ");
+
 		if (columns != null) {
 			columns.forEach((column) -> queryBuilder.append(getBracedName(column) + ","));
 			queryBuilder.replace(queryBuilder.length() - 1, queryBuilder.length(), ""); // Removed trailing ',' after
 																						// the data filling
 		} else
-			queryBuilder.append("*");
+			queryBuilder.append(" * ");
 
 		queryBuilder.append(" FROM " + getBracedName(getTableName()) + " ");
+
+		return this;
+	}
+
+	public QueryBuilder limit(int limit) {
+		queryBuilder.append(" LIMIT " + limit);
 
 		return this;
 	}

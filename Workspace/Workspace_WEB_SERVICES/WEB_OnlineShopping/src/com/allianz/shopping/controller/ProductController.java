@@ -92,19 +92,18 @@ public class ProductController extends HttpServlet {
 
 				response.sendRedirect("ProductController");
 				return;
-			}
-			else if (action.equalsIgnoreCase("getAllProductsOfCategory")) {
+			} else if (action.equalsIgnoreCase("getAllProductsOfCategory")) {
 
 				Category category = new Category();
 				category.setId(Integer.parseInt(request.getParameter("category_id")));
-				
+
 				List<Product> productsOfCategory = categoryDAO.getProductsOfCategory(category);
-				
+
 				if (productsOfCategory != null) {
-				
+
 					List<Category> categories = categoryDAO.getAll();
 					request.setAttribute("categories", categories);
-					
+
 					request.setAttribute("products", productsOfCategory);
 					RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 
@@ -116,15 +115,36 @@ public class ProductController extends HttpServlet {
 
 				response.sendRedirect("ProductController");
 				return;
+			} else if (action.equalsIgnoreCase("getProductDetails")) {
+
+				Product product = productDAO.find(Integer.parseInt(request.getParameter("product_id")));
+
+				if (product != null) {
+					product.setCategories(productDAO.getCategoriesOfProduct(product));
+					request.setAttribute("product", product);
+					
+					List<Category> categories = categoryDAO.getAll();
+					request.setAttribute("categories", categories);
+					RequestDispatcher dispatcher = request.getRequestDispatcher("productDetails.jsp");
+
+					if (dispatcher != null)
+						dispatcher.forward(request, response);
+
+					return;
+				}
+
+				response.sendRedirect("ProductController");
+				return;
+
 			}
 
 		}
 		List<Product> products = productDAO.getAll();
 		request.setAttribute("products", products);
-		
+
 		List<Category> categories = categoryDAO.getAll();
 		request.setAttribute("categories", categories);
-		
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 
 		if (dispatcher != null)

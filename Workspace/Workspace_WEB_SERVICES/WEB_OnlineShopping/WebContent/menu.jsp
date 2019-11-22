@@ -6,9 +6,11 @@
 		<li><a href="subpage.html">New Releases</a></li>
 		<li><a href="#">Company</a></li>
 		<li><a href="#">Contact</a></li>
-		<c:if test="${authenticatedUser}">
+		
+				
+		<c:if test="${authenticatedUser ne null}">
 			
-			<li><a href="#">Hello ${authenticatedUser.name }</a></li>
+			<li><a href="#">Hello ${authenticatedUser.name}</a></li>
 		
 		</c:if>
 	</ul>

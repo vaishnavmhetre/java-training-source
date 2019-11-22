@@ -72,8 +72,10 @@ public class AuthController extends HttpServlet {
 
 				if (status > 0) {
 					response.sendRedirect("login.jsp");
+					return;
 				} else {
 					response.sendRedirect("register.jsp");
+					return;
 				}
 			} else if (action.equalsIgnoreCase("login")) {
 				try {
@@ -81,14 +83,17 @@ public class AuthController extends HttpServlet {
 					if(user != null) {
 						request.getSession(true).setAttribute("auth", user.getId());
 						response.sendRedirect("ProductController");
+						return;
 					} 
 				} catch (ClassNotFoundException | SQLException | InvalidQueryBuilderParameter e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				response.sendRedirect("login.jsp");
+				return;
 			}
 		}
+		response.sendRedirect("login.jsp");
 	}
 
 }

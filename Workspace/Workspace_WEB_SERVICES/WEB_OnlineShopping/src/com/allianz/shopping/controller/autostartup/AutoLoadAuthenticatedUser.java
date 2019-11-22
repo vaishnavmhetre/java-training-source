@@ -18,7 +18,7 @@ import com.allianz.shopping.data.model.User;
 /**
  * Servlet Filter implementation class AutoLoadAuthenticatedUser
  */
-@WebFilter("/AutoLoadAuthenticatedUser")
+@WebFilter("/*")
 public class AutoLoadAuthenticatedUser implements Filter {
 
     /**
@@ -41,20 +41,20 @@ public class AutoLoadAuthenticatedUser implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
 		if (httpServletRequest.getSession() != null) {
-
 			if (httpServletRequest.getSession().getAttribute("auth") != null) {
 				int userId = (int) httpServletRequest.getSession().getAttribute("auth");
 				User user;
 				try {
 					user = new UserDAO().findUserById(userId);
-					if (user != null)
+					if (user != null) {
 						httpServletRequest.setAttribute("authenticatedUser", user);
+					}
 				} catch (ClassNotFoundException | SQLException e) {
 					e.printStackTrace();
 				}
 			}
 		}
-		chain.doFilter(request, response);
+		chain.doFilter(httpServletRequest, response);
 	}
 
 	/**
