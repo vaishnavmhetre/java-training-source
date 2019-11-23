@@ -30,6 +30,7 @@ public class DatabaseManager {
 	public DatabaseManager(DatabaseProperties properties) throws ClassNotFoundException, SQLException {
 		setProperties(properties);
 		setConnection(createConnection());
+		createStatement();
 	}
 
 	/**

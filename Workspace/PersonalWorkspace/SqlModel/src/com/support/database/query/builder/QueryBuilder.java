@@ -8,7 +8,7 @@ import static com.support.database.query.builder.util.QueryBuilderUtil.getBraced
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
+import java.util.Collection;
 
 import com.support.database.manager.DatabaseManager;
 
@@ -22,6 +22,11 @@ public class QueryBuilder {
 	protected StringBuilder queryBuilder;
 
 	protected DatabaseManager databaseManager;
+	
+	public QueryBuilder(DatabaseManager databaseManager) {
+		setQueryBuilder(new StringBuilder());
+		setDatabaseManager(databaseManager);
+	}
 
 	/**
 	 * @return the tableName
@@ -65,17 +70,16 @@ public class QueryBuilder {
 		this.databaseManager = databaseManager;
 	}
 
-	public static QueryBuilder table(String tableName) {
-		QueryBuilder builder = new QueryBuilder();
-		builder.setTableName(tableName);
-		return builder;
+	public QueryBuilder table(String tableName) {
+		this.setTableName(tableName);
+		return this;
 	}
 
 	public QueryBuilder select() {
 		return select(null);
 	}
 
-	public QueryBuilder select(List<String> columns) {
+	public QueryBuilder select(Collection<String> columns) {
 		queryBuilder.append("SELECT ");
 
 		if (columns != null) {

@@ -3,37 +3,35 @@
  */
 package com.support.database.model;
 
-import java.lang.reflect.Field;
-import java.util.Arrays;
-import java.util.List;
+import java.sql.ResultSet;
+import java.util.Collection;
 
-import com.support.database.annotation.Column;
-import com.support.database.model.support.util.ReflectionUtility;
+import com.support.database.model.data.builder.DataBuilder;
+import com.support.database.model.support.exception.ModelProcessException;
+import com.support.database.model.support.model.ModelSupport;
+import com.support.database.query.builder.QueryBuilder;
 
 /**
  * @author Allianz3076
  *
  */
-public class Model<T> {
+public class Model<T> extends ModelSupport<T> {
 
-	private Class<T> modelClazz;
-
-	/**
-	 * @return the type
-	 */
-	public Class<T> getType() {
-		return this.modelClazz;
+	public Model(Class<T> modelClass) {
+		super(modelClass);
 	}
 
-	public Model(Class<T> clazz) {
-		this.modelClazz = clazz;
-	}
+	@SuppressWarnings("unchecked")
+	public Collection<T> all(Collection<String> columns) throws ModelProcessException {
 
-	public List<T> all(List<String> columns) {
+		try {
+			ResultSet data = new QueryBuilder(getDatabaseManager()).table(getTableName()).select(columns).get();
 
-		Field[] fields = ReflectionUtility.getAnnotatedDeclaredFields(modelClazz, Column.class, false);
+			return (Collection<T>) DataBuilder.buildAll(data, modelClass, getColumnFields());
 
-		System.out.println(Arrays.asList(fields));
-		return null;
+		} catch (Exception e) {
+			throw new ModelProcessException(e);
+		}
+
 	}
 }

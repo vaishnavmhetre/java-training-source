@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.support.database.annotation;
+package com.support.database.annotation.sql;
 
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
