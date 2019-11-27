@@ -5,6 +5,7 @@ package com.data.model;
 
 import com.support.database.annotation.sql.Column;
 import com.support.database.annotation.sql.Table;
+import com.support.database.manager.DatabaseManager;
 import com.support.database.model.Model;
 
 /**
@@ -14,8 +15,12 @@ import com.support.database.model.Model;
 @Table
 public class Product extends Model<Product> {
 
+	public Product(DatabaseManager databaseManager) {
+		super(Product.class, databaseManager);
+	}
+
 	public Product() {
-		super(Product.class);
+		this(null);
 	}
 
 	@Column

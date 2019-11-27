@@ -5,6 +5,7 @@ package com.data.model;
 
 import com.support.database.annotation.sql.Column;
 import com.support.database.annotation.sql.Table;
+import com.support.database.manager.DatabaseManager;
 import com.support.database.model.Model;
 
 /**
@@ -28,8 +29,12 @@ public class User extends Model<User> {
 	 * };
 	 */
 
+	public User(DatabaseManager databaseManager) {
+		super(User.class, databaseManager);
+	}
+
 	public User() {
-		super(User.class);
+		this(null);
 	}
 
 	@Column

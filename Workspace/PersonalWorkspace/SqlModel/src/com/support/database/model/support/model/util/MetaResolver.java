@@ -5,12 +5,15 @@ package com.support.database.model.support.model.util;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.support.database.GeneralUtil;
 import com.support.database.annotation.mutator.Setter;
 import com.support.database.annotation.sql.Column;
+import com.support.database.annotation.sql.Id;
 import com.support.database.annotation.sql.Table;
 import com.support.database.model.support.caster.support.contract.supportabstract.Caster;
 import com.support.database.model.support.exception.MetaResolutionException;
@@ -144,5 +147,46 @@ public class MetaResolver {
 		} catch (SecurityException e) {
 			throw new MetaResolutionException(e);
 		}
+	}
+
+	public static Field getIdFieldForModel(Class<?> modelClass) throws MetaResolutionException {
+		Field[] idFields = ReflectionUtility.getAnnotatedDeclaredFields(modelClass, Id.class, false);
+
+		if (idFields.length > 1)
+			throw new MetaResolutionException("Any Model (here -> " + modelClass + ") must have only one Id field, but "
+					+ GeneralUtil.appendArrayToBuilderWithParantheses(new StringBuilder(idFields + " -> "),
+							Arrays.asList(idFields)).toString()
+					+ " fields are defined as Id");
+		else if (idFields.length == 1)
+			return idFields[0];
+		else
+			return deriveIdFieldForModel(modelClass);
+	}
+
+	public static Field deriveIdFieldForModel(Class<?> modelClass) {
+		Field[] idFields = ReflectionUtility.getDeclaredFields(modelClass, false);
+
+		for (Field field : idFields)
+			if (field.getName().equalsIgnoreCase("id")
+					|| field.getName().equalsIgnoreCase(modelClass.getSimpleName() + "id"))
+				return field;
+
+		return null;
+	}
+
+	public static boolean hasIdFieldForModel(Class<?> modelClass) {
+		try {
+			return getIdFieldForModel(modelClass) != null;
+		} catch (MetaResolutionException e) {
+			return false;
+		}
+	}
+
+	public static Field forceGetIdFieldForModel(Class<?> modelClass) throws MetaResolutionException {
+		if (hasIdFieldForModel(modelClass))
+			return getIdFieldForModel(modelClass);
+
+		throw new MetaResolutionException(
+				"No compatible Id field found, neither could derive for model -> " + modelClass);
 	}
 }
